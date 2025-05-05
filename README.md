@@ -52,7 +52,7 @@ This project is a full-featured Angular 19.1.8 web application that allows users
 1. Clone the repo:
    ```bash
    git clone https://github.com/your-username/your-repo-name.git
-   cd your-repo-name ```
+   cd your-repo-name
 2.Install dependencies:
  ```bash
    npm install
