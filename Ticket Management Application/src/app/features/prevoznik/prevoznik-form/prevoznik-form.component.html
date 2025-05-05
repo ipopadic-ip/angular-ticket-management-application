@@ -1,0 +1,18 @@
+<h2 *ngIf="!id">Dodaj prevoznika</h2>
+<h2 *ngIf="id">Izmeni prevoznika</h2>
+
+<form [formGroup]="form" (ngSubmit)="sacuvaj()">
+  <mat-form-field appearance="fill">
+    <mat-label>Naziv</mat-label>
+    <input matInput formControlName="naziv">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Adresa</mat-label>
+    <input matInput formControlName="adresa">
+  </mat-form-field>
+
+  <mat-checkbox formControlName="aktivan">Aktivan</mat-checkbox>
+
+  <button mat-raised-button color="primary" type="submit">Sačuvaj</button>
+</form>

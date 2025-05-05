@@ -1,0 +1,14 @@
+<h2>Login</h2>
+<form [formGroup]="form" (ngSubmit)="login()">
+  <mat-form-field appearance="fill">
+    <mat-label>Korisničko ime</mat-label>
+    <input matInput formControlName="username">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Lozinka</mat-label>
+    <input matInput type="password" formControlName="password">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Prijavi se</button>
+</form>

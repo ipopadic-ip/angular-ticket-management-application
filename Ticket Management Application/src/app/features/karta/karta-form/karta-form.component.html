@@ -1,0 +1,48 @@
+<h2 *ngIf="!id">Dodaj kartu</h2>
+<h2 *ngIf="id">Izmeni kartu</h2>
+
+<form [formGroup]="form" (ngSubmit)="sacuvaj()">
+  <mat-form-field appearance="fill">
+    <mat-label>Ime vlasnika</mat-label>
+    <input matInput formControlName="imeVlasnika">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Odredište</mat-label>
+    <input matInput formControlName="odrediste">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Datum polaska</mat-label>
+    <input matInput type="datetime-local" formControlName="datumPolaska" [min]="minDateTime">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Datum dolaska</mat-label>
+    <input matInput type="datetime-local" formControlName="datumDolaska">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Cena</mat-label>
+    <input matInput type="number" formControlName="cena">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Prevoznik</mat-label>
+    <mat-select formControlName="idPrevoznika" required>
+      <mat-option *ngFor="let p of prevoznici" [value]="p.id">{{ p.naziv }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+
+  <mat-error *ngIf="form.get('datumPolaska')?.hasError('pastDate')">
+    Datum polaska ne može biti u prošlosti.
+  </mat-error>
+  
+  <mat-error *ngIf="form.get('datumDolaska')?.hasError('beforeDeparture')">
+    Datum dolaska ne može biti pre datuma polaska.
+  </mat-error>
+  
+
+  <button mat-raised-button color="primary" type="submit">Sačuvaj</button>
+</form>

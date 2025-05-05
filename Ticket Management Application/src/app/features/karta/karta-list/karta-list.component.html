@@ -1,0 +1,41 @@
+<h2>Karte</h2>
+<button mat-raised-button color="primary" routerLink="/karte/add">Dodaj</button>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="imeVlasnika">
+    <th mat-header-cell *matHeaderCellDef> Vlasnik </th>
+    <td mat-cell *matCellDef="let k"> {{k.imeVlasnika}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="odrediste">
+    <th mat-header-cell *matHeaderCellDef> Odredište </th>
+    <td mat-cell *matCellDef="let k"> {{k.odrediste}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="datumPolaska">
+    <th mat-header-cell *matHeaderCellDef> Polazak </th>
+    <td mat-cell *matCellDef="let k"> {{k.datumPolaska | date:'short'}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="datumDolaska">
+    <th mat-header-cell *matHeaderCellDef> Dolazak </th>
+    <td mat-cell *matCellDef="let k"> {{k.datumDolaska | date:'short'}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="cena">
+    <th mat-header-cell *matHeaderCellDef> Cena (€) </th>
+    <td mat-cell *matCellDef="let k"> {{k.cena}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Akcije </th>
+    <td mat-cell *matCellDef="let k">
+      <button mat-button (click)="izmeni(k)">Izmeni</button>
+      <button mat-button color="warn" (click)="obrisi(k.id)">Obriši</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

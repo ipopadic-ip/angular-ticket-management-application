@@ -1,0 +1,19 @@
+<div class="timeline-container">
+    <!-- Čvor "+" -->
+    <div class="timeline-item" (click)="idiNaDodavanje()">
+      <div class="circle plus">+</div>
+      <div class="line"></div>
+    </div>
+  
+    <!-- Ostali čvorovi -->
+    <div *ngFor="let karta of karte" class="timeline-item">
+      <div class="circle"></div>
+      <div class="line"></div>
+      <div class="tooltip" [class.left]="karte.indexOf(karta) % 2 === 0" [class.right]="karte.indexOf(karta) % 2 !== 0">
+        <div>{{ karta.datumPolaska }}</div>
+        <div>{{ karta.imeVlasnika }}</div>
+        <div>{{ karta.odrediste }}</div>
+      </div>
+    </div>
+  </div>
+  

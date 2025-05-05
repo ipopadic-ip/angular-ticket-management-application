@@ -1,0 +1,36 @@
+<h2>Statistika prevoznika</h2>
+
+<p><strong>Ukupan broj karata:</strong> {{ karte.length }}</p>
+<p><strong>Realizovane karte:</strong> {{ realizovaneKarte }}</p>
+<p><strong>Ukupna zarada:</strong> {{ ukupnaZarada | currency:'EUR':'symbol' }}</p>
+
+<table mat-table [dataSource]="karte" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="imeVlasnika">
+    <th mat-header-cell *matHeaderCellDef> Ime vlasnika </th>
+    <td mat-cell *matCellDef="let k"> {{ k.imeVlasnika }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="odrediste">
+    <th mat-header-cell *matHeaderCellDef> Odredište </th>
+    <td mat-cell *matCellDef="let k"> {{ k.odrediste }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="datumPolaska">
+    <th mat-header-cell *matHeaderCellDef> Datum polaska </th>
+    <td mat-cell *matCellDef="let k"> {{ k.datumPolaska | date:'short' }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="datumDolaska">
+    <th mat-header-cell *matHeaderCellDef> Datum dolaska </th>
+    <td mat-cell *matCellDef="let k"> {{ k.datumDolaska ? (k.datumDolaska | date:'short') : 'N/A' }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="cena">
+    <th mat-header-cell *matHeaderCellDef> Cena </th>
+    <td mat-cell *matCellDef="let k"> {{ k.cena | currency:'EUR':'symbol' }} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
