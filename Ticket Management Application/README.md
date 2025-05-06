@@ -1,4 +1,4 @@
-# K22022270688
+# Angular App with JWT
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.8.
 
