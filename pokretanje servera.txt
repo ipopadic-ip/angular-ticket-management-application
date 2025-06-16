@@ -1,0 +1,7 @@
+cd "putanja servera"
+
+npm install
+
+node index.js
+
+angular: ng add @angular/material
