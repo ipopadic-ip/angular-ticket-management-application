@@ -58,4 +58,7 @@ This project is a full-featured Angular 19.1.8 web application that allows users
    npm install
 ```
 
+---
+
+## Author: Ilija
    
